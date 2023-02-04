@@ -27,7 +27,7 @@ public class BoxBehaviour1 : MonoBehaviour
         
 
         rigidbody2D = GetComponent<Rigidbody2D>();
-        temp = Instantiate(projectilePrefab);
+        //temp = Instantiate(projectilePrefab);
     }
 
     private void Update()
