@@ -8,6 +8,7 @@ public class BoxBehaviour1 : MonoBehaviour
     public float health = 100;
     public int numCoins = 0;
     public AudioClip bounceSound;
+    public AudioClip PewPew;
     public float x;
     public float y;
     public float z;
@@ -51,6 +52,7 @@ public class BoxBehaviour1 : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, transform.position, rot);
             Rigidbody2D rigidbody = projectile.GetComponent<Rigidbody2D>();
             rigidbody.velocity = (mousePos.normalized * projectileSpeed);
+            GetComponent<AudioSource>().PlayOneShot(PewPew);
 
             float distance = Vector3.Distance(projectile.transform.position, transform.position);
             if (mousePos.x > distanceThreshold)
