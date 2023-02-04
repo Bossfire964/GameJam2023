@@ -5,7 +5,7 @@ public class JumpController : MonoBehaviour
     public float jumpForce = 30f;
     private Rigidbody2D rigidBody2D;
     public int maxJumps = 2;
-    private int jumpcount = 2;
+    public int jumpcount = 2;
 
     private void Start()
     {
@@ -15,8 +15,9 @@ public class JumpController : MonoBehaviour
     private void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Space)&& jumpcount < maxJumps)
+        if((Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W) )&& jumpcount < maxJumps)
         {
+            Debug.Log("Jumping ");
             rigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpcount++;
         }

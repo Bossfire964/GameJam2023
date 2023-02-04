@@ -27,13 +27,18 @@ public class Fireball : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
             Destroy(this.gameObject);
         }
-        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponent<BossHealth>().damageBoss();
+            Destroy(this.gameObject);
+        }
+        
     }
 
 }
