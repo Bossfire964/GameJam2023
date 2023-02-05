@@ -6,6 +6,7 @@ public class BossHealth : MonoBehaviour
 {
     public float health = 1;
     public float bulletDamage = 1;
+    public bool noHurt = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,11 @@ public class BossHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Char"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(20);
+            if (!noHurt)
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().takeDamage(20);
+
+            }
         }
     }
 }
